@@ -6,8 +6,10 @@ import Header from "./Components/Header/Header";
 function App() {
   const { onToggleButton, tg } = useTelegram;
 
+  console.log(App);
+
   useEffect(() => {
-    tg.ready();
+    tg?.ready();
   }, [tg]);
 
   return (
@@ -17,5 +19,6 @@ function App() {
     </div>
   );
 }
+console.log(App);
 
 export default App;
