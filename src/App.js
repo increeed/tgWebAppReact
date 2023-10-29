@@ -1,9 +1,13 @@
-import "./App.css";
-import { useEffect } from "react";
-import { useTelegram } from "./Components/hooks/useTelegram";
-import Header from "./Components/Header/Header";
+import './App.css';
+import { useEffect } from 'react';
+import { useTelegram } from './Components/hooks/useTelegram';
+import Header from './Components/Header/Header';
+import { Route, Routes } from 'react-router-dom';
+import ProductList from './Components/ProductList/ProducktList';
+import Form from './Components/Form/Form';
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const { onToggleButton, tg } = useTelegram();
 
   useEffect(() => {
@@ -13,7 +17,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <button onClick={onToggleButton}>toggle</button>
+      <Routes>
+        <Route index element={<ProductList />} />
+        <Route path={'form'} element={<Form />} />
+      </Routes>
     </div>
   );
 }
